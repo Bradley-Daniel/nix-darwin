@@ -15,6 +15,7 @@
       discord
       jetbrains.clion
       vscode
+      spotify
     ];
     systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin"];
     pathsToLink = ["/Applications"];
@@ -31,7 +32,7 @@
     # finder.AppleShowAllExtensions = true;
     finder._FXShowPosixPathInTitle = true;
     dock.autohide = true;
-    # NSGlobalDomain.AppleShowAllExtensions = true;
+    # NSGlobalDomai.AppleShowAllExtensions = true;
     # NSGlobalDomain.InitialKeyRepeat = 14;
     # NSGlobalDomain.KeyRepeat = 1;
   };

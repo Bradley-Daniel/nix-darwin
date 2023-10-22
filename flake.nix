@@ -12,11 +12,14 @@
     # Controls system level software and settings including fonts
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     darwin,
+    alacritty-theme,
     ...
   }: {
     darwinConfigurations.Bradleys-MacBook-Pro = darwin.lib.darwinSystem {
@@ -27,6 +30,8 @@
           allowUnfree = true;
         };
       };
+
+      nixpkgs.overlays = [alacritty-theme.overlays.default];
       modules = [
         ./modules/darwin
         home-manager.darwinModules.home-manager

@@ -17,7 +17,7 @@
     neovim
     tree-sitter
     nodejs
-
+    black
   ];
 
   home.sessionVariables = {
@@ -45,14 +45,14 @@
       tmuxPlugins.yank
       tmuxPlugins.sensible
       (pkgs.tmuxPlugins.catppuccin.overrideAttrs
-      (_: {
-        src = pkgs.fetchFromGitHub {
-          owner = "Bradley-Daniel";
-          repo = "catppuccin-tmux";
-          rev = "a93a0b469c485c8768b3f37089fb2da4616c321a";
-          sha256 = "sha256-ZrvUq0jwxgxMiS92HpXqnABRpCfYuQTZ6bQr+xbXdkY";
-        };
-      }))
+        (_: {
+          src = pkgs.fetchFromGitHub {
+            owner = "Bradley-Daniel";
+            repo = "catppuccin-tmux";
+            rev = "a93a0b469c485c8768b3f37089fb2da4616c321a";
+            sha256 = "sha256-ZrvUq0jwxgxMiS92HpXqnABRpCfYuQTZ6bQr+xbXdkY";
+          };
+        }))
     ];
     extraConfig = ''
       set -g mouse on
@@ -110,9 +110,9 @@
       vim = "nvim";
     };
     sessionVariables = {
-        EDITOR="nvim";
-        VISUAL="nvim";
-        GIT_EDITOR="nvim";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      GIT_EDITOR = "nvim";
     };
     oh-my-zsh = {
       enable = true;
@@ -130,24 +130,31 @@
         file = "p10k.zsh";
       }
     ];
-
   };
 
   # home.file."Personal/dotconfig/zsh".source = ./file/zsh/source;
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
-  programs.kitty = {
+  # programs.kitty = {
+  #   enable = true;
+  #   shellIntegration.enableZshIntegration = true;
+  #   font = {
+  #     size = 14;
+  #     name = "JetBrainsMono Nerd Font";
+  #   };
+  #   settings = {
+  #     background_blur = 35;
+  #     background_opacity = ".95";
+  #     background = "#14191e";
+  #   };
+  #   theme = "Catppuccin-Mocha";
+  # };
+  programs.alacritty = {
     enable = true;
-    font = {
-      size = 14;
-      name = "JetBrainsMono Nerd Font";
-    };
-    settings = {
-        background_blur = 35;
-        background_opacity = ".95";
-        background = "#14191e";
-    };
-    theme = "Catppuccin-Mocha";
+    settings.import = [ pkgs.alacritty-theme.cyber_punk_neon ];
+    # settings.font.normal.family = "JetBrainsMono Nerd Font";
+    # settings.font.size = 14;
+    # setting = {};
   };
-  # home.file.".inputrc".source = ./dotfiles/inputrc;
+  home.file.".inputrc".source = ./dotfiles/inputrc;
 }
