@@ -26,7 +26,7 @@
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    # syntaxHighlighting.enable = true;
+    syntaxHighlighting.enable = true;
     shellAliases = {
       ls = "exa --icons";
       nixswitch = "darwin-rebuild switch --flake ~/Personal/dotconfig/darwin .#";
