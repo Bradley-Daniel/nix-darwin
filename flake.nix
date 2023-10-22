@@ -31,17 +31,29 @@
         };
       };
 
-      nixpkgs.overlays = [alacritty-theme.overlays.default];
       modules = [
-        ./modules/darwin
-        home-manager.darwinModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.bradley.imports = [./modules/home-manager];
+        ({ config, pkgs, ...}: {
+          # install the overlay
+          nixpkgs.overlays = [ alacritty-theme.overlays.default ];
+        })
+        ({ config, pkgs, ... }: {
+          home-manager.users.bradley = hm: {
+            programs.alacritty = {
+              enable = true;
+              # use a color scheme from the overlay
+              settings.import = [ pkgs.alacritty-theme.cyber_punk_neon ];
+            };
           };
-        }
+        })
+        # ./modules/darwin
+        # home-manager.darwinModules.home-manager
+        # {
+        #   home-manager = {
+        #     useGlobalPkgs = true;
+        #     useUserPackages = true;
+        #     users.bradley.imports = [./modules/home-manager];
+        #   };
+        # }
       ];
     };
   };

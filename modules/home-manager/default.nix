@@ -151,7 +151,7 @@
   # };
   programs.alacritty = {
     enable = true;
-    settings.import = [ pkgs.alacritty-theme.cyber_punk_neon ];
+    settings.import = [ pkgs.alacritty-theme.kanagawa_dragon ];
     # settings.font.normal.family = "JetBrainsMono Nerd Font";
     # settings.font.size = 14;
     # setting = {};
