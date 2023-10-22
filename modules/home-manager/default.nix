@@ -29,7 +29,7 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       ls = "exa --icons";
-      nixswitch = "darwin-rebuild switch --flake ~/Personal/dotconfig/darwin .#";
+      nixswitch = "darwin-rebuild switch --flake ~/Personal/dotconfig/darwin/.#";
       nixup = "pushd ~/Personal/dotconfig/system-config; nix flake update; nixswitch; popd";
       config = "cd ~/Personal/dotconfig";
       psource = "source $(poetry env info --path)/bin/activate";
