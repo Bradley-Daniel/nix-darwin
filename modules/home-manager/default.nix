@@ -149,12 +149,12 @@
   #   };
   #   theme = "Catppuccin-Mocha";
   # };
+  home.file.".config/alacritty/catppuccin-mocha.yml".source = ./themes/catppuccin-mocha.yml;
   programs.alacritty = {
     enable = true;
-    settings.import = [ pkgs.alacritty-theme.kanagawa_dragon ];
-    # settings.font.normal.family = "JetBrainsMono Nerd Font";
-    # settings.font.size = 14;
-    # setting = {};
+    settings.import = "catppuccin-mocha.yml";
+    settings.font.normal.family = "JetBrainsMono Nerd Font";
+    settings.font.size = 14;
   };
   home.file.".inputrc".source = ./dotfiles/inputrc;
 }

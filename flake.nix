@@ -13,13 +13,13 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
+    # alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     darwin,
-    alacritty-theme,
+    # alacritty-theme,
     ...
   }: {
     darwinConfigurations.Bradleys-MacBook-Pro = darwin.lib.darwinSystem {
@@ -29,31 +29,19 @@
         config = {
           allowUnfree = true;
         };
+        # overlays = [ alacritty-theme.overlays.default ];
       };
 
       modules = [
-        ({ config, pkgs, ...}: {
-          # install the overlay
-          nixpkgs.overlays = [ alacritty-theme.overlays.default ];
-        })
-        ({ config, pkgs, ... }: {
-          home-manager.users.bradley = hm: {
-            programs.alacritty = {
-              enable = true;
-              # use a color scheme from the overlay
-              settings.import = [ pkgs.alacritty-theme.cyber_punk_neon ];
-            };
+        ./modules/darwin
+        home-manager.darwinModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.bradley.imports = [./modules/home-manager];
           };
-        })
-        # ./modules/darwin
-        # home-manager.darwinModules.home-manager
-        # {
-        #   home-manager = {
-        #     useGlobalPkgs = true;
-        #     useUserPackages = true;
-        #     users.bradley.imports = [./modules/home-manager];
-        #   };
-        # }
+        }
       ];
     };
   };
