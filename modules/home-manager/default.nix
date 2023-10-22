@@ -14,6 +14,10 @@
     cmake
     neofetch
     htop
+    neovim
+    tree-sitter
+    nodejs
+
   ];
 
   home.sessionVariables = {
@@ -105,6 +109,11 @@
       psource = "source $(poetry env info --path)/bin/activate";
       vim = "nvim";
     };
+    sessionVariables = {
+        EDITOR="nvim";
+        VISUAL="nvim";
+        GIT_EDITOR="nvim";
+    };
     oh-my-zsh = {
       enable = true;
       plugins = ["git"];
@@ -121,18 +130,24 @@
         file = "p10k.zsh";
       }
     ];
+
   };
 
   # home.file."Personal/dotconfig/zsh".source = ./file/zsh/source;
   programs.starship.enable = true;
   programs.starship.enableZshIntegration = true;
-  # programs.kitty = {
-  #   enable = true;
-  #   font = {
-  #     size = 14;
-  #     name = "JetBrainsMono Nerd Font";
-  #   };
-  #   theme = "Catppuccin-Frappe";
-  # };
+  programs.kitty = {
+    enable = true;
+    font = {
+      size = 14;
+      name = "JetBrainsMono Nerd Font";
+    };
+    settings = {
+        background_blur = 35;
+        background_opacity = ".95";
+        background = "#14191e";
+    };
+    theme = "Catppuccin-Mocha";
+  };
   # home.file.".inputrc".source = ./dotfiles/inputrc;
 }

@@ -13,6 +13,8 @@
     systemPackages = with pkgs; [
       coreutils
       discord
+      jetbrains.clion
+      vscode
     ];
     systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin"];
     pathsToLink = ["/Applications"];
@@ -40,8 +42,8 @@
     caskArgs.no_quarantine = true;
     global.brewfile = true;
     masApps = {};
-    casks = ["kitty" "raycast" "quarto" "google-chrome"];
+    casks = ["raycast" "google-chrome" "linearmouse" "macs-fan-control" "tiles" "quarto"];
     # taps = [ "fujiapple852/trippy" ];
-    # brews = [ "trippy" ];
+    # brews = [ "llvm" ];
   };
 }
