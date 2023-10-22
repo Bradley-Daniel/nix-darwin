@@ -3,14 +3,18 @@
   users.users.bradley.home = "/Users/bradley";
 
   programs.zsh.enable = true;
+
   environment = {
     shells = with pkgs; [
       bash
       zsh
     ];
     loginShell = pkgs.zsh;
-    systemPackages = [pkgs.coreutils pkgs.alejandra ];
-    systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin" ];
+    systemPackages = with pkgs; [
+      coreutils
+      discord
+    ];
+    systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin"];
     pathsToLink = ["/Applications"];
   };
   nix.extraOptions = ''
@@ -35,8 +39,8 @@
     enable = true;
     caskArgs.no_quarantine = true;
     global.brewfile = true;
-    masApps = { };
-    casks = [ "kitty" "raycast" ];
+    masApps = {};
+    casks = ["kitty" "raycast" "quarto" "google-chrome"];
     # taps = [ "fujiapple852/trippy" ];
     # brews = [ "trippy" ];
   };
