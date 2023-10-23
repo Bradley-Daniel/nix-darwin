@@ -51,8 +51,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "Bradley-Daniel";
             repo = "catppuccin-tmux";
-            rev = "a93a0b469c485c8768b3f37089fb2da4616c321a";
-            sha256 = "sha256-ZrvUq0jwxgxMiS92HpXqnABRpCfYuQTZ6bQr+xbXdkY";
+            rev = "810db4c048f0087458ccc901c22a6396ed154a0f";
+            sha256 = "sha256-wUSJm3zOEhqPgKGU6p2lvdGRMtK1DzvN47N370wvTKg=";
           };
         }))
     ];
@@ -62,10 +62,12 @@
       # unbind C-b
       # set -g prefix C-Space
       # bind C-Space send-prefix
-
       bind r source-file ~/.config/tmux/tmux.conf
 
-      set-option -sa terminal-features ',XXX:RGB'
+      set-option -ga terminal-overrides ",xterm-256color:Tc"
+      # set-option -sa terminal-features ',:RGB'
+      # set -g default-terminal "screen-256color"
+
 
       # Vim style pane selection
       bind h select-pane -L
@@ -128,6 +130,10 @@
         file = "p10k.zsh";
       }
     ];
+    envExtra = ''
+    echo '\e[5 q'
+    clear
+    '';
   };
 
   home.file.".config/alacritty/catppuccin.yml".source = ./themes/catppuccin.yml;
@@ -136,7 +142,7 @@
     settings = {
       import = ["~/.config/alacritty/catppuccin.yml"];
       font = {
-        size = 17;
+        size = 14;
         normal.family = "JetBrainsMono Nerd Font";
       };
       window = {
@@ -146,6 +152,13 @@
         };
         decorations = "none";
         dynamic_padding = true;
+      };
+      cursor = {
+        style = {
+          shape = "Beam";
+          blinking = "Always";
+        };
+        blink_interval = 450;
       };
     };
   };
