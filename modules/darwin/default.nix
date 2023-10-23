@@ -41,7 +41,7 @@
     enable = true;
     caskArgs.no_quarantine = true;
     global.brewfile = true;
-      
+
     masApps = {};
     casks = ["raycast" "google-chrome" "linearmouse" "macs-fan-control" "tiles" "quarto" "spotify"];
     # taps = [ "fujiapple852/trippy" ];

@@ -18,6 +18,8 @@
     tree-sitter
     nodejs
     black
+    ncurses
+    rustup
   ];
 
   home.sessionVariables = {
@@ -89,12 +91,8 @@
 
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
-
-
     '';
   };
-
-  # programs.zsh.enable = true;
 
   programs.zsh = {
     enable = true;
@@ -132,29 +130,24 @@
     ];
   };
 
-  # home.file."Personal/dotconfig/zsh".source = ./file/zsh/source;
-  programs.starship.enable = true;
-  programs.starship.enableZshIntegration = true;
-  # programs.kitty = {
-  #   enable = true;
-  #   shellIntegration.enableZshIntegration = true;
-  #   font = {
-  #     size = 14;
-  #     name = "JetBrainsMono Nerd Font";
-  #   };
-  #   settings = {
-  #     background_blur = 35;
-  #     background_opacity = ".95";
-  #     background = "#14191e";
-  #   };
-  #   theme = "Catppuccin-Mocha";
-  # };
-  home.file.".config/alacritty/catppuccin-mocha.yml".source = ./themes/catppuccin-mocha.yml;
+  home.file.".config/alacritty/catppuccin.yml".source = ./themes/catppuccin.yml;
   programs.alacritty = {
     enable = true;
-    settings.import = ["~/.config/alacritty/catppuccin-mocha.yml"];
-    settings.font.normal.family = "JetBrainsMono Nerd Font";
-    settings.font.size = 14;
+    settings = {
+      import = ["~/.config/alacritty/catppuccin.yml"];
+      font = {
+        size = 17;
+        normal.family = "JetBrainsMono Nerd Font";
+      };
+      window = {
+        padding = {
+          x = 0;
+          y = 0;
+        };
+        decorations = "none";
+        dynamic_padding = true;
+      };
+    };
   };
   home.file.".inputrc".source = ./dotfiles/inputrc;
 }
