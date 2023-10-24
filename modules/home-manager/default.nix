@@ -7,19 +7,18 @@
     fd
     curl
     less
-    cmake
     alejandra
-    poetry
-    python311
-    cmake
     neofetch
     htop
-    neovim
+    # neovim
     tree-sitter
-    nodejs
-    black
-    ncurses
-    rustup
+    # rustup
+    # cmake
+    # poetry
+    # python311
+    # nodejs
+    # black
+    # ncurses
   ];
 
   home.sessionVariables = {
@@ -37,25 +36,8 @@
 
   programs.tmux = {
     enable = true;
-
     baseIndex = 1;
-
     prefix = "C-Space";
-
-    plugins = with pkgs; [
-      tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.yank
-      tmuxPlugins.sensible
-      (pkgs.tmuxPlugins.catppuccin.overrideAttrs
-        (_: {
-          src = pkgs.fetchFromGitHub {
-            owner = "Bradley-Daniel";
-            repo = "catppuccin-tmux";
-            rev = "810db4c048f0087458ccc901c22a6396ed154a0f";
-            sha256 = "sha256-wUSJm3zOEhqPgKGU6p2lvdGRMtK1DzvN47N370wvTKg=";
-          };
-        }))
-    ];
     extraConfig = ''
       set -g mouse on
 
@@ -76,14 +58,12 @@
       bind l select-pane -R
 
       # Start windows and panes at 1, not 0
-      set -g base-index 1
-      set -g pane-base-index 1
-      set-window-option -g pane-base-index 1
-      set-option -g renumber-windows on
+      # set -g base-index 1
+      # set -g pane-base-index 1
+      # set-window-option -g pane-base-index 1
+      # set-option -g renumber-windows on
 
       set-window-option -g mode-keys vi
-
-      set -g @catppuccin_flavour 'frappe'
 
       # keybindings
       set -g set-clipboard on
@@ -94,6 +74,26 @@
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
     '';
+    plugins = with pkgs; [
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.yank
+      tmuxPlugins.sensible
+      {
+        plugin =
+          (pkgs.tmuxPlugins.catppuccin.overrideAttrs
+          (_: {
+            src = pkgs.fetchFromGitHub {
+              owner = "Bradley-Daniel";
+              repo = "catppuccin-tmux";
+              rev = "b6a9b36f1f2afb40478e8f98ac3af7aefa869e64";
+              sha256 = "sha256-e/2IvlUbKzjEbnK1WqhzEu1PMDPfQ+X/MBEcDX15FnU=";
+            };
+         }));
+        extraConfig = ''
+          set -g @catppuccin_flavour 'mocha' # or frappe, macchiato, mocha
+        '';
+      }
+    ];
   };
 
   programs.zsh = {
@@ -131,8 +131,8 @@
       }
     ];
     envExtra = ''
-    echo '\e[5 q'
-    clear
+      echo '\e[5 q'
+      clear
     '';
   };
 
@@ -147,10 +147,11 @@
       };
       window = {
         padding = {
-          x = 0;
+          x = 10;
           y = 0;
         };
-        decorations = "none";
+        # decorations = "none";
+        decorations = "buttonless";
         dynamic_padding = true;
       };
       cursor = {
