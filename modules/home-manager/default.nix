@@ -10,21 +10,21 @@
     alejandra
     neofetch
     htop
-    # neovim
+    neovim
     tree-sitter
-    # rustup
-    # cmake
-    # poetry
-    # python311
-    # nodejs
-    # black
-    # ncurses
+    nodejs
   ];
 
   home.sessionVariables = {
     PAGER = "less";
     CLICLOLOR = 1;
     EDITOR = "nvim";
+  };
+
+  programs.direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
   };
 
   programs.bat.enable = true;
@@ -98,6 +98,10 @@
 
   programs.zsh = {
     enable = true;
+    envExtra = ''
+      DISABLE_MAGIC_FUNCTIONS=true
+      # printf '\e[5 q'
+    '';
     enableCompletion = true;
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
@@ -130,10 +134,6 @@
         file = "p10k.zsh";
       }
     ];
-    envExtra = ''
-      echo '\e[5 q'
-      clear
-    '';
   };
 
   home.file.".config/alacritty/catppuccin.yml".source = ./themes/catppuccin.yml;
@@ -156,7 +156,8 @@
       };
       cursor = {
         style = {
-          shape = "Beam";
+          # shape = "Beam";
+          shape = "Block";
           blinking = "Always";
         };
         blink_interval = 450;

@@ -17,15 +17,16 @@
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim = {
-        url = "github:SpookMrGhost/nvim";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # neovim = {
+    #     url = "github:SpookyMrGhost/nvim";
+    #     inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     darwin,
+    # neovim,
     ...
   }: {
     darwinConfigurations.Bradleys-MacBook-Pro = darwin.lib.darwinSystem {
@@ -35,6 +36,11 @@
         config = {
           allowUnfree = true;
         };
+
+      # overlays = [
+      #   (final: prev: {
+      #       neovim = inputs.neovim.packages.${final.system}.neovim;
+      #   })];
       };
 
       modules = [

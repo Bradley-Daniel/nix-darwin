@@ -15,6 +15,7 @@
       discord
       jetbrains.clion
       vscode
+      spotify
     ];
     systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin"];
     pathsToLink = ["/Applications"];
@@ -43,7 +44,7 @@
     global.brewfile = true;
 
     masApps = {};
-    casks = ["raycast" "google-chrome" "linearmouse" "macs-fan-control" "tiles" "quarto" "spotify"];
+    casks = ["google-chrome" "linearmouse" "macs-fan-control" "tiles" "quarto"];
     # taps = [ "fujiapple852/trippy" ];
     # brews = [ "llvm" ];
   };
