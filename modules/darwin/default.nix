@@ -16,6 +16,8 @@
       jetbrains.clion
       vscode
       spotify
+      tree-sitter
+      rustup
     ];
     systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin"];
     pathsToLink = ["/Applications"];
@@ -44,7 +46,7 @@
     global.brewfile = true;
 
     masApps = {};
-    casks = ["google-chrome" "linearmouse" "macs-fan-control" "tiles" "quarto"];
+    casks = ["google-chrome" "linearmouse" "macs-fan-control" "tiles" "quarto" "raycast" ];
     # taps = [ "fujiapple852/trippy" ];
     # brews = [ "llvm" ];
   };

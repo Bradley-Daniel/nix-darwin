@@ -9,9 +9,9 @@
     less
     alejandra
     neofetch
+
     htop
     neovim
-    tree-sitter
     nodejs
   ];
 
