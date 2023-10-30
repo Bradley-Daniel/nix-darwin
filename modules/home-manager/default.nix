@@ -10,8 +10,8 @@
     alejandra
     neofetch
 
-    htop
     neovim
+    htop
     nodejs
   ];
 

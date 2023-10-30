@@ -18,6 +18,7 @@
       spotify
       tree-sitter
       rustup
+      gh
     ];
     systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin"];
     pathsToLink = ["/Applications"];
