@@ -19,6 +19,7 @@
       tree-sitter
       rustup
       gh
+      sbcl
     ];
     systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin"];
     pathsToLink = ["/Applications"];

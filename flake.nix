@@ -7,19 +7,19 @@
 
     # Manages configs links things into your home directory
     home-manager = {
-        url = "github:nix-community/home-manager/master";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Controls system level software and settings including fonts
     darwin = {
-        url = "github:lnl7/nix-darwin";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     neovim = {
-        url = "github:bradley-daniel/neovim";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:bradley-daniel/neovim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs = inputs @ {
@@ -37,10 +37,11 @@
           allowUnfree = true;
         };
 
-      overlays = [
-        (final: prev: {
+        overlays = [
+          (final: prev: {
             neovim = inputs.neovim.packages.${final.system}.neovim;
-        })];
+          })
+        ];
       };
 
       modules = [

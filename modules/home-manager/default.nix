@@ -1,18 +1,19 @@
 {pkgs, ...}: {
   # Don't change this when you change package input. Leave it alone.
   home.stateVersion = "22.11";
+
   # specify my home-manager configs
   home.packages = with pkgs; [
     ripgrep
     fd
     curl
     less
-    alejandra
     neofetch
+    alejandra
 
     neovim
     htop
-    nodejs
+    # nodejs
   ];
 
   home.sessionVariables = {
@@ -101,6 +102,11 @@
     envExtra = ''
       DISABLE_MAGIC_FUNCTIONS=true
       # printf '\e[5 q'
+      # defaults
+      VI_MODE_CURSOR_NORMAL=2
+      VI_MODE_CURSOR_VISUAL=6
+      VI_MODE_CURSOR_INSERT=6
+      VI_MODE_CURSOR_OPPEND=0
     '';
     enableCompletion = true;
     enableAutosuggestions = true;
@@ -120,7 +126,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = ["git"];
+      plugins = ["git" "vi-mode"];
     };
     plugins = [
       {
