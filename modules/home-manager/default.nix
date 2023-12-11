@@ -10,9 +10,10 @@
     less
     neofetch
     alejandra
-
     neovim
     htop
+    ncurses
+    libevent
     # nodejs
   ];
 
@@ -23,9 +24,9 @@
   };
 
   programs.direnv = {
-      enable = true;
-      enableZshIntegration = true;
-      nix-direnv.enable = true;
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.bat.enable = true;
@@ -81,7 +82,7 @@
       tmuxPlugins.sensible
       {
         plugin =
-          (pkgs.tmuxPlugins.catppuccin.overrideAttrs
+          pkgs.tmuxPlugins.catppuccin.overrideAttrs
           (_: {
             src = pkgs.fetchFromGitHub {
               owner = "Bradley-Daniel";
@@ -89,7 +90,7 @@
               rev = "b6a9b36f1f2afb40478e8f98ac3af7aefa869e64";
               sha256 = "sha256-e/2IvlUbKzjEbnK1WqhzEu1PMDPfQ+X/MBEcDX15FnU=";
             };
-         }));
+          });
         extraConfig = ''
           set -g @catppuccin_flavour 'mocha' # or frappe, macchiato, mocha
         '';
