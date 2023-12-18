@@ -17,11 +17,10 @@
       vscode
       spotify
       tree-sitter
-      rustup
       gh
       sbcl
     ];
-    systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin"];
+    systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin" "$HOME/.cargo/bin"];
     pathsToLink = ["/Applications"];
   };
   nix.extraOptions = ''

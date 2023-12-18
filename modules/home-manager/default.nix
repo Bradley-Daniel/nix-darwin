@@ -13,8 +13,9 @@
     neovim
     htop
     ncurses
+    rustup
     libevent
-    # nodejs
+    nodejs
   ];
 
   home.sessionVariables = {
@@ -30,7 +31,7 @@
   };
 
   programs.bat.enable = true;
-  programs.bat.config.theme = "TwoDark";
+  programs.bat.config.theme = "base16";
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
   programs.eza.enable = true;
@@ -108,6 +109,9 @@
       VI_MODE_CURSOR_VISUAL=6
       VI_MODE_CURSOR_INSERT=6
       VI_MODE_CURSOR_OPPEND=0
+
+
+
     '';
     enableCompletion = true;
     enableAutosuggestions = true;
@@ -119,6 +123,7 @@
       config = "cd ~/Personal/dotconfig";
       psource = "source $(poetry env info --path)/bin/activate";
       vim = "nvim";
+      v = "nvim";
     };
     sessionVariables = {
       EDITOR = "nvim";
