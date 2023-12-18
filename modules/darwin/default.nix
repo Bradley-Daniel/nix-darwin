@@ -12,13 +12,6 @@
     loginShell = pkgs.zsh;
     systemPackages = with pkgs; [
       coreutils
-      discord
-      jetbrains.clion
-      vscode
-      spotify
-      tree-sitter
-      gh
-      sbcl
     ];
     systemPath = ["/opt/homebrew/bin" "$HOME/Personal/bin" "$HOME/.cargo/bin"];
     pathsToLink = ["/Applications"];
@@ -47,7 +40,7 @@
     global.brewfile = true;
 
     masApps = {};
-    casks = ["google-chrome" "linearmouse" "macs-fan-control" "tiles" "quarto" "raycast" ];
+    casks = ["linearmouse" "macs-fan-control" "tiles" "quarto" "raycast"];
     # taps = [ "fujiapple852/trippy" ];
     # brews = [ "llvm" ];
   };

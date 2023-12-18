@@ -4,6 +4,9 @@
 
   # specify my home-manager configs
   home.packages = with pkgs; [
+    tree-sitter
+    gh
+    sbcl
     ripgrep
     fd
     curl
@@ -16,6 +19,7 @@
     rustup
     libevent
     nodejs
+    cmake
   ];
 
   home.sessionVariables = {
@@ -109,9 +113,6 @@
       VI_MODE_CURSOR_VISUAL=6
       VI_MODE_CURSOR_INSERT=6
       VI_MODE_CURSOR_OPPEND=0
-
-
-
     '';
     enableCompletion = true;
     enableAutosuggestions = true;
