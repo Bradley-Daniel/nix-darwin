@@ -157,6 +157,7 @@
       font = {
         size = 14;
         normal.family = "JetBrainsMono Nerd Font";
+        # normal.family = "JetBrainsMono Nerd Font Mono";
       };
       window = {
         padding = {
