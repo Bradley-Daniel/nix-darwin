@@ -18,8 +18,11 @@
     ncurses
     rustup
     libevent
-    nodejs
+    # nodejs
     cmake
+
+    python312
+    poetry
   ];
 
   home.sessionVariables = {
@@ -125,6 +128,7 @@
       psource = "source $(poetry env info --path)/bin/activate";
       vim = "nvim";
       v = "nvim";
+      lvim = "/Users/bradley/.local/bin/lvim";
     };
     sessionVariables = {
       EDITOR = "nvim";
@@ -133,7 +137,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "vi-mode"];
+      plugins = ["git"];
     };
     plugins = [
       {
@@ -149,11 +153,21 @@
     ];
   };
 
-  home.file.".config/alacritty/catppuccin.yml".source = ./themes/catppuccin.yml;
+  home.file.".config/alacritty/catppuccin.toml".source = ./themes/catppuccin.toml;
   programs.alacritty = {
     enable = true;
     settings = {
-      import = ["~/.config/alacritty/catppuccin.yml"];
+      keyboard = {
+        bindings = [
+          {
+            key = "w";
+            mods = "Control";
+            chars = "~/Personal/bin/tmux_sessionizer \r";
+          }
+        ];
+      };
+
+      import = ["~/.config/alacritty/catppuccin.toml"];
       font = {
         size = 14;
         normal.family = "JetBrainsMono Nerd Font";

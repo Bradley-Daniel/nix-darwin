@@ -40,7 +40,7 @@
     global.brewfile = true;
 
     masApps = {};
-    casks = ["linearmouse" "macs-fan-control" "tiles" "quarto" "raycast"];
+    casks = ["linearmouse" "macs-fan-control" "tiles" "raycast" "quarto"];
     # taps = [ "fujiapple852/trippy" ];
     # brews = [ "llvm" ];
   };
